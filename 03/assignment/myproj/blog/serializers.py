@@ -8,7 +8,7 @@ class TagSerializer(serializers.ModelSerializer):
 
 class CommentSerializer(serializers.ModelSerializer):
     #tag_list = serializers.ListField(write_only=True, required=False, allow_empty=True)
-    tags = TagSerializer(many=True, read_only=True)
+    tags = TagSerializer(many=True)
     class Meta:
         model = Comment
         fields = ['post', 'author', 'content', 'created_at', 'updated_at', 'tags']
@@ -24,7 +24,7 @@ class CommentListSerializer(serializers.ModelSerializer):
 
 class PostSerializer(serializers.ModelSerializer):
     #tag_list = serializers.ListField(write_only=True, required=False, allow_empty=True)
-    tags = TagSerializer(many=True, read_only = True)
+    tags = TagSerializer(many=True)
     #comments = serializers.StringRelatedField(many=True)
     comments = CommentSerializer(many=True, read_only=True)
     class Meta:

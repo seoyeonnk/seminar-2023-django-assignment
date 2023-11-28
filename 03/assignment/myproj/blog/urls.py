@@ -11,6 +11,7 @@ urlpatterns = [
     path('blog/', views.main_page, name='main-page'),
     #path('list/', views.page_list, name='page-list'),
     path('list/', views.PostList.as_view(), name='page-list'),
+    path('blog/list',views.myPostList.as_view(), name='my-page-list'),
     path('write/', views.page_create, name='page-create'),
     #path('page/<int:page_id>/', views.page_detail, name='page-detail'),
     path('page/<int:page_id>/', views.PostDetail.as_view(), name='page-detail'), #DRF Post detail, update, delete
